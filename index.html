@@ -31,6 +31,163 @@
     <h3 class="title is-2 publication-title">LM-SPT: LM-Aligned Semantic Distillation for Speech Tokenization</h3>
     </div>
 </div>
+    <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+        <h2 style="margin-left: 5px;">25Hz</h2>
+        <h3 style="margin-left: 20px;">Reconstruction (Semantic Only):</h3>
+            <div class="table-responsive pt-0">
+                <table class="table table-hover pt-0">
+                <thead>
+                <tr>
+                <th style="text-align: center">GroundTruth</th>
+                <th style="text-align: center">LM-SPT</th>
+                <th style="text-align: center">Mimi</th>
+                <th style="text-align: center">SpeechTokenizer</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                <tr>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-25hz/sem_recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-25hz/sem_recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-25hz/sem_recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                </tr>
+
+                <tr>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-25hz/sem_recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-25hz/sem_recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-25hz/sem_recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                </tr>
+
+                <tr>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-25hz/sem_recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-25hz/sem_recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-25hz/sem_recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <h3 style="margin-left: 20px;">Reconstruction:</h3>
+            <div class="table-responsive pt-0">
+                <table class="table table-hover pt-0">
+                <thead>
+                <tr>
+                <th style="text-align: center">GroundTruth</th>
+                <th style="text-align: center">LM-SPT</th>
+                <th style="text-align: center">Mimi</th>
+                <th style="text-align: center">SpeechTokenizer</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                <tr>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-25hz/recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-25hz/recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-25hz/recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                </tr>
+
+                <tr>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-25hz/recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-25hz/recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-25hz/recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                </tr>
+
+                <tr>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-25hz/recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-25hz/recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-25hz/recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+        <h2 style="margin-left: 5px;">12.5Hz</h2>
+        <h3 style="margin-left: 20px;">Reconstruction (Semantic Only):</h3>
+            <div class="table-responsive pt-0">
+                <table class="table table-hover pt-0">
+                <thead>
+                <tr>
+                <th style="text-align: center">GroundTruth</th>
+                <th style="text-align: center">LM-SPT</th>
+                <th style="text-align: center">Mimi</th>
+                <th style="text-align: center">SpeechTokenizer</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                <tr>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-12d5hz/sem_recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-12d5hz/sem_recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-12d5hz/sem_recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                </tr>
+
+                <tr>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-12d5hz/sem_recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-12d5hz/sem_recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-12d5hz/sem_recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                </tr>
+
+                <tr>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-12d5hz/sem_recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-12d5hz/sem_recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-12d5hz/sem_recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <h3 style="margin-left: 20px;">Reconstruction:</h3>
+            <div class="table-responsive pt-0">
+                <table class="table table-hover pt-0">
+                <thead>
+                <tr>
+                <th style="text-align: center">GroundTruth</th>
+                <th style="text-align: center">LM-SPT</th>
+                <th style="text-align: center">Mimi</th>
+                <th style="text-align: center">SpeechTokenizer</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                <tr>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-12d5hz/recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-12d5hz/recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-12d5hz/recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                </tr>
+
+                <tr>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-12d5hz/recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-12d5hz/recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-12d5hz/recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                </tr>
+
+                <tr>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-12d5hz/recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-12d5hz/recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-12d5hz/recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
 
     <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
         <h2 style="margin-left: 5px;">6.25Hz</h2>
@@ -134,160 +291,3 @@
         </div>
     </div>
 
-    <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
-        <h2 style="margin-left: 5px;">12.5Hz</h2>
-        <h3 style="margin-left: 20px;">Reconstruction (Semantic Only):</h3>
-            <div class="table-responsive pt-0">
-                <table class="table table-hover pt-0">
-                <thead>
-                <tr>
-                <th style="text-align: center">GroundTruth</th>
-                <th style="text-align: center">LM-SPT</th>
-                <th style="text-align: center">Mimi</th>
-                <th style="text-align: center">SpeechTokenizer</th>
-                </tr>
-                </thead>
-                <tbody>
-                
-                <tr>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-12d5hz/sem_recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-12d5hz/sem_recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-12d5hz/sem_recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                </tr>
-
-                <tr>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-12d5hz/sem_recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-12d5hz/sem_recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-12d5hz/sem_recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                </tr>
-
-                <tr>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-12d5hz/sem_recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-12d5hz/sem_recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-12d5hz/sem_recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                </tr>
-
-                </tbody>
-            </table>
-        </div>
-
-        <h3 style="margin-left: 20px;">Reconstruction:</h3>
-            <div class="table-responsive pt-0">
-                <table class="table table-hover pt-0">
-                <thead>
-                <tr>
-                <th style="text-align: center">GroundTruth</th>
-                <th style="text-align: center">LM-SPT</th>
-                <th style="text-align: center">Mimi</th>
-                <th style="text-align: center">SpeechTokenizer</th>
-                </tr>
-                </thead>
-                <tbody>
-                
-                <tr>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-12d5hz/recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-12d5hz/recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-12d5hz/recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                </tr>
-
-                <tr>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-12d5hz/recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-12d5hz/recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-12d5hz/recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                </tr>
-
-                <tr>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-12d5hz/recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-12d5hz/recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-12d5hz/recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                </tr>
-
-                </tbody>
-            </table>
-        </div>
-    </div>
-    
-    <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
-        <h2 style="margin-left: 5px;">25Hz</h2>
-        <h3 style="margin-left: 20px;">Reconstruction (Semantic Only):</h3>
-            <div class="table-responsive pt-0">
-                <table class="table table-hover pt-0">
-                <thead>
-                <tr>
-                <th style="text-align: center">GroundTruth</th>
-                <th style="text-align: center">LM-SPT</th>
-                <th style="text-align: center">Mimi</th>
-                <th style="text-align: center">SpeechTokenizer</th>
-                </tr>
-                </thead>
-                <tbody>
-                
-                <tr>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-25hz/sem_recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-25hz/sem_recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-25hz/sem_recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                </tr>
-
-                <tr>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-25hz/sem_recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-25hz/sem_recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-25hz/sem_recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                </tr>
-
-                <tr>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-25hz/sem_recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-25hz/sem_recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-25hz/sem_recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                </tr>
-
-                </tbody>
-            </table>
-        </div>
-
-        <h3 style="margin-left: 20px;">Reconstruction:</h3>
-            <div class="table-responsive pt-0">
-                <table class="table table-hover pt-0">
-                <thead>
-                <tr>
-                <th style="text-align: center">GroundTruth</th>
-                <th style="text-align: center">LM-SPT</th>
-                <th style="text-align: center">Mimi</th>
-                <th style="text-align: center">SpeechTokenizer</th>
-                </tr>
-                </thead>
-                <tbody>
-                
-                <tr>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-25hz/recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-25hz/recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-25hz/recon/61-70968-0016.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                </tr>
-
-                <tr>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-25hz/recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-25hz/recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-25hz/recon/61-70968-0045.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                </tr>
-
-                <tr>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/ref/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/lm-spt-25hz/recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/mimi-25hz/recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                <td style="text-align: center;vertical-align:middle;width: 800px"><audio controls="controls" style="width: 250px;"><source src="recon_librispeech/spt-25hz/recon/61-70970-0035.wav" autoplay/>Your browser does not support the audio element.</audio></td>
-                </tr>
-
-                </tbody>
-            </table>
-        </div>
-    </div>
