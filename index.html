@@ -101,7 +101,7 @@
     .sub-section.recon .table td:first-child {
       border-right: 1px solid #dee2e6;
     }
-    /* TTS: Transcript - LM-SPT 세로 구분선 */
+    /* TTS: Transcript - 첫 번째 모델 열(Cosy2) 세로 구분선 */
     .sub-section.tts .table th:nth-child(2),
     .sub-section.tts .table td:nth-child(2) {
       border-right: 1px solid #dee2e6;
@@ -125,7 +125,8 @@
   <!-- Title Header -->
   <div class="card-box my-3">
     <h1>LM-SPT: LM-Aligned Semantic Distillation for Speech Tokenization</h1>
-    <p class="description">Audio demonstrations: Reconstruction, Reconstruction (Semantic Only), and Zero-shot Text-to-Speech. <br>Languages: English / Korean. Semantic-only reconstruction of LM-SPT uses the main decoder only (not auxiliary).</p>
+    <p class="description">Audio demonstrations: Reconstruction, Reconstruction (Semantic Only), and Zero-shot Text-to-Speech. <br>Semantic-only reconstruction of LM-SPT uses the main decoder only (not auxiliary semantic decoder).</p>
+    <p class="description small text-muted mt-2 mb-0">Each row is one sample. <strong>Reconstruction</strong>: same utterance encoded then decoded by each model (Ground Truth = original recording). <strong>Reconstruction (Semantic Only)</strong>: same setup using only semantic tokens. <strong>Zero-shot TTS</strong>: text is synthesized in the voice of the Reference Speaker by each model.</p>
   </div>
 
   <div class="d-flex justify-content-center my-3">
@@ -145,32 +146,32 @@
             <tr>
               <th>Transcript</th>
               <th>GroundTruth</th>
-              <th>LM-SPT</th>
               <th>Mimi</th>
               <th>DualCodec</th>
+              <th>LM-SPT</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td class="transcript">Why it's Goliath as usual, they both cried peering in.</td>
               <td><audio controls><source src="recon_samples/gt_eng_2.wav"></audio></td>
-              <td><audio controls><source src="recon_samples/lmspt_eng_2.wav"></audio></td>
               <td><audio controls><source src="recon_samples/mimi_eng_2.wav"></audio></td>
               <td><audio controls><source src="recon_samples/dualcodec_eng_2.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_eng_2.wav"></audio></td>
             </tr>
             <tr>
               <td class="transcript">They worry me terribly, and Besides I'd like to see what this lovely furniture looks like without such quantities of dust all over it good scheme, Cyn.</td>
               <td><audio controls><source src="recon_samples/gt_eng_4.wav"></audio></td>
-              <td><audio controls><source src="recon_samples/lmspt_eng_4.wav"></audio></td>
               <td><audio controls><source src="recon_samples/mimi_eng_4.wav"></audio></td>
               <td><audio controls><source src="recon_samples/dualcodec_eng_4.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_eng_4.wav"></audio></td>
             </tr>
             <tr>
               <td class="transcript">Then she suddenly remarked.</td>
               <td><audio controls><source src="recon_samples/gt_eng_8.wav"></audio></td>
-              <td><audio controls><source src="recon_samples/lmspt_eng_8.wav"></audio></td>
               <td><audio controls><source src="recon_samples/mimi_eng_8.wav"></audio></td>
               <td><audio controls><source src="recon_samples/dualcodec_eng_8.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_eng_8.wav"></audio></td>
             </tr>
           </tbody>
         </table>
@@ -183,32 +184,32 @@
             <tr>
               <th>Transcript</th>
               <th>GroundTruth</th>
-              <th>LM-SPT</th>
               <th>Mimi</th>
               <th>DualCodec</th>
+              <th>LM-SPT</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td class="transcript">Why it's Goliath as usual, they both cried peering in.</td>
               <td><audio controls><source src="recon_samples/gt_eng_2.wav"></audio></td>
-              <td><audio controls><source src="recon_samples/lmspt_semantic_eng_2.wav"></audio></td>
               <td><audio controls><source src="recon_samples/mimi_semantic_eng_2.wav"></audio></td>
               <td><audio controls><source src="recon_samples/dualcodec_semantic_eng_2.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_semantic_eng_2.wav"></audio></td>
             </tr>
             <tr>
               <td class="transcript">They worry me terribly, and Besides I'd like to see what this lovely furniture looks like without such quantities of dust all over it good scheme, Cyn.</td>
               <td><audio controls><source src="recon_samples/gt_eng_4.wav"></audio></td>
-              <td><audio controls><source src="recon_samples/lmspt_semantic_eng_4.wav"></audio></td>
               <td><audio controls><source src="recon_samples/mimi_semantic_eng_4.wav"></audio></td>
               <td><audio controls><source src="recon_samples/dualcodec_semantic_eng_4.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_semantic_eng_4.wav"></audio></td>
             </tr>
             <tr>
               <td class="transcript">Then she suddenly remarked.</td>
               <td><audio controls><source src="recon_samples/gt_eng_8.wav"></audio></td>
-              <td><audio controls><source src="recon_samples/lmspt_semantic_eng_8.wav"></audio></td>
               <td><audio controls><source src="recon_samples/mimi_semantic_eng_8.wav"></audio></td>
               <td><audio controls><source src="recon_samples/dualcodec_semantic_eng_8.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_semantic_eng_8.wav"></audio></td>
             </tr>
           </tbody>
         </table>
@@ -223,36 +224,36 @@
             <tr>
               <th>Reference Speaker</th>
               <th>Transcript</th>
-              <th>LM-SPT</th>
-              <th>Cosy2</th>
+              <th>CosyVoice2</th>
               <th>Mimi</th>
               <th>DualCodec</th>
+              <th>LM-SPT</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><audio controls><source src="tts_samples/eng/speakers/4992-41797-0010.wav"></audio></td>
               <td class="text-left transcript">Mister popham exaggerated nothing but on the contrary left much unsaid in his narrative of the family at the house of lords.</td>
-              <td><audio controls><source src="tts_samples/eng/lmspt/4992-41797-0008.wav"></audio></td>
               <td><audio controls><source src="tts_samples/eng/cosy2/4992-41797-0008.wav"></audio></td>
               <td><audio controls><source src="tts_samples/eng/mimi/4992-41797-0008.wav"></audio></td>
               <td><audio controls><source src="tts_samples/eng/dualcodec/4992-41797-0008.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/eng/lmspt/4992-41797-0008.wav"></audio></td>
             </tr>
             <tr>
               <td><audio controls><source src="tts_samples/eng/speakers/8463-294828-0031.wav"></audio></td>
               <td class="text-left transcript">I was well satisfied with my cabin which was located in the stern and opened into the officers mess.</td>
-              <td><audio controls><source src="tts_samples/eng/lmspt/8463-294828-0033.wav"></audio></td>
               <td><audio controls><source src="tts_samples/eng/cosy2/8463-294828-0033.wav"></audio></td>
               <td><audio controls><source src="tts_samples/eng/mimi/8463-294828-0033.wav"></audio></td>
               <td><audio controls><source src="tts_samples/eng/dualcodec/8463-294828-0033.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/eng/lmspt/8463-294828-0033.wav"></audio></td>
             </tr>
             <tr>
               <td><audio controls><source src="tts_samples/eng/speakers/1188-133604-0039.wav"></audio></td>
               <td class="text-left transcript">There's one and there's another the dudley and the flint.</td>
-              <td><audio controls><source src="tts_samples/eng/lmspt/1188-133604-0031.wav"></audio></td>
               <td><audio controls><source src="tts_samples/eng/cosy2/1188-133604-0031.wav"></audio></td>
               <td><audio controls><source src="tts_samples/eng/mimi/1188-133604-0031.wav"></audio></td>
               <td><audio controls><source src="tts_samples/eng/dualcodec/1188-133604-0031.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/eng/lmspt/1188-133604-0031.wav"></audio></td>
             </tr>
           </tbody>
         </table>
@@ -272,32 +273,32 @@
             <tr>
               <th>Transcript</th>
               <th>GroundTruth</th>
-              <th>LM-SPT</th>
               <th>Mimi</th>
               <th>DualCodec</th>
+              <th>LM-SPT</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td class="transcript">아 근데 진짜 감튀 먹고 있는데 데려온 거 심했다</td>
               <td><audio controls><source src="recon_samples/gt_kor_5.wav"></audio></td>
-              <td><audio controls><source src="recon_samples/lmspt_kor_5.wav"></audio></td>
               <td><audio controls><source src="recon_samples/mimi_kor_5.wav"></audio></td>
               <td><audio controls><source src="recon_samples/dualcodec_kor_5.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_kor_5.wav"></audio></td>
             </tr>
             <tr>
               <td class="transcript">아닐껄 그뭐지 몰라 뭔가 근데 그 남자애가 우리 욕 했을 것 같애</td>
               <td><audio controls><source src="recon_samples/gt_kor_10.wav"></audio></td>
-              <td><audio controls><source src="recon_samples/lmspt_kor_10.wav"></audio></td>
               <td><audio controls><source src="recon_samples/mimi_kor_10.wav"></audio></td>
               <td><audio controls><source src="recon_samples/dualcodec_kor_10.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_kor_10.wav"></audio></td>
             </tr>
             <tr>
               <td class="transcript">더 재밌게 즐길 수 있었을 텐데</td>
               <td><audio controls><source src="recon_samples/gt_kor_20.wav"></audio></td>
-              <td><audio controls><source src="recon_samples/lmspt_kor_20.wav"></audio></td>
               <td><audio controls><source src="recon_samples/mimi_kor_20.wav"></audio></td>
               <td><audio controls><source src="recon_samples/dualcodec_kor_20.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_kor_20.wav"></audio></td>
             </tr>
           </tbody>
         </table>
@@ -310,32 +311,32 @@
             <tr>
               <th>Transcript</th>
               <th>GroundTruth</th>
-              <th>LM-SPT</th>
               <th>Mimi</th>
               <th>DualCodec</th>
+              <th>LM-SPT</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td class="transcript">아 근데 진짜 감튀 먹고 있는데 데려온 거 심했다</td>
               <td><audio controls><source src="recon_samples/gt_kor_5.wav"></audio></td>
-              <td><audio controls><source src="recon_samples/lmspt_semantic_kor_5.wav"></audio></td>
               <td><audio controls><source src="recon_samples/mimi_semantic_kor_5.wav"></audio></td>
               <td><audio controls><source src="recon_samples/dualcodec_semantic_kor_5.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_semantic_kor_5.wav"></audio></td>
             </tr>
             <tr>
               <td class="transcript">아닐껄 그뭐지 몰라 뭔가 근데 그 남자애가 우리 욕 했을 것 같애</td>
               <td><audio controls><source src="recon_samples/gt_kor_10.wav"></audio></td>
-              <td><audio controls><source src="recon_samples/lmspt_semantic_kor_10.wav"></audio></td>
               <td><audio controls><source src="recon_samples/mimi_semantic_kor_10.wav"></audio></td>
               <td><audio controls><source src="recon_samples/dualcodec_semantic_kor_10.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_semantic_kor_10.wav"></audio></td>
             </tr>
             <tr>
               <td class="transcript">더 재밌게 즐길 수 있었을 텐데</td>
               <td><audio controls><source src="recon_samples/gt_kor_20.wav"></audio></td>
-              <td><audio controls><source src="recon_samples/lmspt_semantic_kor_20.wav"></audio></td>
               <td><audio controls><source src="recon_samples/mimi_semantic_kor_20.wav"></audio></td>
               <td><audio controls><source src="recon_samples/dualcodec_semantic_kor_20.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_semantic_kor_20.wav"></audio></td>
             </tr>
           </tbody>
         </table>
@@ -350,36 +351,36 @@
             <tr>
               <th>Reference Speaker</th>
               <th>Transcript</th>
-              <th>LM-SPT</th>
               <th>Cosy2</th>
               <th>Mimi</th>
               <th>DualCodec</th>
+              <th>LM-SPT</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><audio controls><source src="tts_samples/kor/speakers/KsponSpeech_E00356.wav"></audio></td>
               <td class="text-left transcript">근데 내가 한참동안 있었거든 근데 이제</td>
-              <td><audio controls><source src="tts_samples/kor/lmspt/KsponSpeech_E00352.wav"></audio></td>
               <td><audio controls><source src="tts_samples/kor/cosy2/KsponSpeech_E00352.wav"></audio></td>
               <td><audio controls><source src="tts_samples/kor/mimi/KsponSpeech_E00352.wav"></audio></td>
               <td><audio controls><source src="tts_samples/kor/dualcodec/KsponSpeech_E00352.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/kor/lmspt/KsponSpeech_E00352.wav"></audio></td>
             </tr>
             <tr>
               <td><audio controls><source src="tts_samples/kor/speakers/KsponSpeech_E01076.wav"></audio></td>
               <td class="text-left transcript">또 이제 내가 오월드를 하고 나서 뚜레주르라는 또 알바를 했었어 내가 근데</td>
-              <td><audio controls><source src="tts_samples/kor/lmspt/KsponSpeech_E01075.wav"></audio></td>
               <td><audio controls><source src="tts_samples/kor/cosy2/KsponSpeech_E01075.wav"></audio></td>
               <td><audio controls><source src="tts_samples/kor/mimi/KsponSpeech_E01075.wav"></audio></td>
               <td><audio controls><source src="tts_samples/kor/dualcodec/KsponSpeech_E01075.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/kor/lmspt/KsponSpeech_E01075.wav"></audio></td>
             </tr>
             <tr>
               <td><audio controls><source src="tts_samples/kor/speakers/KsponSpeech_E02441.wav"></audio></td>
               <td class="text-left transcript">키가 되게 작아도 못 탄다고 했잖아 근데 그 애가 키가 되게 작은 거야 근데 엄마랑 같이 왔어 근데</td>
-              <td><audio controls><source src="tts_samples/kor/lmspt/KsponSpeech_E02439.wav"></audio></td>
               <td><audio controls><source src="tts_samples/kor/cosy2/KsponSpeech_E02439.wav"></audio></td>
               <td><audio controls><source src="tts_samples/kor/mimi/KsponSpeech_E02439.wav"></audio></td>
               <td><audio controls><source src="tts_samples/kor/dualcodec/KsponSpeech_E02439.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/kor/lmspt/KsponSpeech_E02439.wav"></audio></td>
             </tr>
           </tbody>
         </table>
