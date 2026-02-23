@@ -9,6 +9,9 @@
       background-color: #f0f2f5;
       color: #343a40;
     }
+    .container {
+      max-width: 1600px;
+    }
     .card-box {
       background: #ffffff;
       border-radius: 0.5rem;
@@ -41,11 +44,26 @@
       margin-bottom: 1rem;
       color: #212529;
     }
+    .lang-section {
+      margin-bottom: 2rem;
+    }
+    .lang-section h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.25rem;
+      color: #495057;
+    }
     .sub-section {
       margin-top: 1.5rem;
     }
     .sub-section h3 {
-      font-size: 1.25rem;
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.25rem;
+      color: #495057;
+    }
+    .sub-section h4 {
+      font-size: 1.15rem;
       margin-bottom: 0.75rem;
       padding-bottom: 0.25rem;
     }
@@ -58,17 +76,41 @@
     .table td {
       text-align: center;
       vertical-align: middle;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
       padding: 0.5rem;
       border-top: none;
+    }
+    .table td.transcript {
+      text-align: left;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+      max-width: 280px;
+    }
+    /* Reconstruction: 넓은 Transcript, 좁은 오디오 간격 */
+    .sub-section.recon .table td.transcript,
+    .sub-section.recon .table th:first-child {
+      width: 32%;
+      max-width: 420px;
+    }
+    .sub-section.recon audio {
+      width: 210px;
+      max-width: 100%;
+    }
+    /* Reconstruction: Transcript - GT 세로 구분선 */
+    .sub-section.recon .table th:first-child,
+    .sub-section.recon .table td:first-child {
+      border-right: 1px solid #dee2e6;
+    }
+    /* TTS: Transcript - LM-SPT 세로 구분선 */
+    .sub-section.tts .table th:nth-child(2),
+    .sub-section.tts .table td:nth-child(2) {
+      border-right: 1px solid #dee2e6;
     }
     .thead-light th {
       border-bottom: 1px solid #dee2e6;
     }
     audio {
-      width: 250px;
+      width: 220px;
       max-width: 100%;
     }
     .sub-section.tts .table td.text-left {
@@ -83,65 +125,52 @@
   <!-- Title Header -->
   <div class="card-box my-3">
     <h1>LM-SPT: LM-Aligned Semantic Distillation for Speech Tokenization</h1>
-    <p class="description">Audio demonstrations including reconstruction, semantic-only reconstruction, and TTS results are provided <br> for various models (LM-SPT, Mimi (R), SpeechTokenizer) across multiple frame rates (25Hz, 12.5Hz, 6.25Hz). <br>Note that the semantic-only reconstruction results of LM-SPT were decoded exclusively using the main decoder (not auxiliary decoder).</p>
+    <p class="description">Audio demonstrations: Reconstruction, Reconstruction (Semantic Only), and Zero-shot Text-to-Speech. <br>Languages: English / Korean. Semantic-only reconstruction of LM-SPT uses the main decoder only (not auxiliary).</p>
   </div>
 
   <div class="d-flex justify-content-center my-3">
-    <a href="#25Hz" class="btn border-white bg-white fw-bold shadow-sm flex-fill mx-1 py-1 text-center">25Hz</a>
-    <a href="#12d5Hz" class="btn border-white bg-white fw-bold shadow-sm flex-fill mx-1 py-1 text-center">12.5Hz</a>
-    <a href="#6d25Hz" class="btn border-white bg-white fw-bold shadow-sm flex-fill mx-1 py-1 text-center">6.25Hz</a>
+    <a href="#english" class="btn border-white bg-white fw-bold shadow-sm flex-fill mx-1 py-1 text-center">English</a>
+    <a href="#korean" class="btn border-white bg-white fw-bold shadow-sm flex-fill mx-1 py-1 text-center">Korean</a>
   </div>
 
-  <!-- 25Hz -->
-  <section class="frequency-block" id="25Hz">
-    <h2>25Hz</h2>
-    <!-- Reconstruction -->
+  <!-- English: Reconstruction → Reconstruction (Semantic Only) → Zero-shot TTS -->
+  <section class="frequency-block" id="english">
+    <h2>English</h2>
+
     <div class="sub-section recon">
       <h3>Reconstruction</h3>
       <div class="table-responsive">
         <table class="table table-hover table-sm">
           <thead class="thead-light">
             <tr>
+              <th>Transcript</th>
               <th>GroundTruth</th>
               <th>LM-SPT</th>
-              <th>Mimi (R)</th>
-              <th>SpeechTokenizer</th>
+              <th>Mimi</th>
+              <th>DualCodec</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><audio controls><source src="recon_librispeech/ref/61-70968-0045.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-25hz/recon/61-70968-0045.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-25hz/recon/61-70968-0045.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-25hz/recon/61-70968-0045.wav"></audio></td>
+              <td class="transcript">Why it's Goliath as usual, they both cried peering in.</td>
+              <td><audio controls><source src="recon_samples/gt_eng_2.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_eng_2.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/mimi_eng_2.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/dualcodec_eng_2.wav"></audio></td>
             </tr>
-
             <tr>
-              <td><audio controls><source src="recon_librispeech/ref/2094-142345-0053.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-25hz/recon/2094-142345-0053.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-25hz/recon/2094-142345-0053.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-25hz/recon/2094-142345-0053.wav"></audio></td>
+              <td class="transcript">They worry me terribly, and Besides I'd like to see what this lovely furniture looks like without such quantities of dust all over it good scheme, Cyn.</td>
+              <td><audio controls><source src="recon_samples/gt_eng_4.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_eng_4.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/mimi_eng_4.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/dualcodec_eng_4.wav"></audio></td>
             </tr>
-
             <tr>
-              <td><audio controls><source src="recon_librispeech/ref/1320-122617-0000.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-25hz/recon/1320-122617-0000.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-25hz/recon/1320-122617-0000.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-25hz/recon/1320-122617-0000.wav"></audio></td>
-            </tr>
-
-            <tr>
-              <td><audio controls><source src="recon_librispeech/ref/7729-102255-0028.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-25hz/recon/7729-102255-0028.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-25hz/recon/7729-102255-0028.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-25hz/recon/7729-102255-0028.wav"></audio></td>
-            </tr>
-
-            <tr>
-              <td><audio controls><source src="recon_librispeech/ref/4507-16021-0015.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-25hz/recon/4507-16021-0015.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-25hz/recon/4507-16021-0015.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-25hz/recon/4507-16021-0015.wav"></audio></td>
+              <td class="transcript">Then she suddenly remarked.</td>
+              <td><audio controls><source src="recon_samples/gt_eng_8.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_eng_8.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/mimi_eng_8.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/dualcodec_eng_8.wav"></audio></td>
             </tr>
           </tbody>
         </table>
@@ -152,99 +181,78 @@
         <table class="table table-hover table-sm">
           <thead class="thead-light">
             <tr>
+              <th>Transcript</th>
               <th>GroundTruth</th>
               <th>LM-SPT</th>
-              <th>Mimi (R)</th>
-              <th>SpeechTokenizer</th>
+              <th>Mimi</th>
+              <th>DualCodec</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><audio controls><source src="recon_librispeech/ref/61-70968-0045.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-25hz/sem_recon/61-70968-0045.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-25hz/sem_recon/61-70968-0045.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-25hz/sem_recon/61-70968-0045.wav"></audio></td>
+              <td class="transcript">Why it's Goliath as usual, they both cried peering in.</td>
+              <td><audio controls><source src="recon_samples/gt_eng_2.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_semantic_eng_2.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/mimi_semantic_eng_2.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/dualcodec_semantic_eng_2.wav"></audio></td>
             </tr>
-            
             <tr>
-              <td><audio controls><source src="recon_librispeech/ref/2094-142345-0053.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-25hz/sem_recon/2094-142345-0053.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-25hz/sem_recon/2094-142345-0053.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-25hz/sem_recon/2094-142345-0053.wav"></audio></td>
+              <td class="transcript">They worry me terribly, and Besides I'd like to see what this lovely furniture looks like without such quantities of dust all over it good scheme, Cyn.</td>
+              <td><audio controls><source src="recon_samples/gt_eng_4.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_semantic_eng_4.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/mimi_semantic_eng_4.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/dualcodec_semantic_eng_4.wav"></audio></td>
             </tr>
-
             <tr>
-              <td><audio controls><source src="recon_librispeech/ref/1320-122617-0000.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-25hz/sem_recon/1320-122617-0000.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-25hz/sem_recon/1320-122617-0000.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-25hz/sem_recon/1320-122617-0000.wav"></audio></td>
-            </tr>
-
-            <tr>
-              <td><audio controls><source src="recon_librispeech/ref/7729-102255-0028.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-25hz/sem_recon/7729-102255-0028.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-25hz/sem_recon/7729-102255-0028.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-25hz/sem_recon/7729-102255-0028.wav"></audio></td>
-            </tr>
-
-            <tr>
-              <td><audio controls><source src="recon_librispeech/ref/4507-16021-0015.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-25hz/sem_recon/4507-16021-0015.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-25hz/sem_recon/4507-16021-0015.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-25hz/sem_recon/4507-16021-0015.wav"></audio></td>
+              <td class="transcript">Then she suddenly remarked.</td>
+              <td><audio controls><source src="recon_samples/gt_eng_8.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_semantic_eng_8.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/mimi_semantic_eng_8.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/dualcodec_semantic_eng_8.wav"></audio></td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
 
-    <!-- TTS -->
     <div class="sub-section tts">
-      <h3>Text-to-Speech</h3>
+      <h3>Zero-shot Text-to-Speech</h3>
       <div class="table-responsive">
         <table class="table table-hover table-sm">
           <thead class="thead-light">
             <tr>
-              <th>Text</th>
+              <th>Reference Speaker</th>
+              <th>Transcript</th>
               <th>LM-SPT</th>
-              <th>Mimi (R)</th>
-              <th>SpeechTokenizer</th>
+              <th>Cosy2</th>
+              <th>Mimi</th>
+              <th>DualCodec</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="text-left">they were upon the verge of an open trap in the far corner of the hut and stuteley had tripped over the edge of the reversed flap mouth of this pit</td>
-              <td><audio controls><source src="slm_librispeech/lm-spt_25hz/61-70970-0025.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/mimi_25hz/61-70970-0025.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/spt_25hz/61-70970-0025.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/eng/speakers/4992-41797-0010.wav"></audio></td>
+              <td class="text-left transcript">Mister popham exaggerated nothing but on the contrary left much unsaid in his narrative of the family at the house of lords.</td>
+              <td><audio controls><source src="tts_samples/eng/lmspt/4992-41797-0008.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/eng/cosy2/4992-41797-0008.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/eng/mimi/4992-41797-0008.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/eng/dualcodec/4992-41797-0008.wav"></audio></td>
             </tr>
-
             <tr>
-              <td class="text-left">were i in the warm room with all the splendor and magnificence</td>
-              <td><audio controls><source src="slm_librispeech/lm-spt_25hz/672-122797-0015.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/mimi_25hz/672-122797-0015.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/spt_25hz/672-122797-0015.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/eng/speakers/8463-294828-0031.wav"></audio></td>
+              <td class="text-left transcript">I was well satisfied with my cabin which was located in the stern and opened into the officers mess.</td>
+              <td><audio controls><source src="tts_samples/eng/lmspt/8463-294828-0033.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/eng/cosy2/8463-294828-0033.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/eng/mimi/8463-294828-0033.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/eng/dualcodec/8463-294828-0033.wav"></audio></td>
             </tr>
-
             <tr>
-              <td class="text-left">he seemed to wait for her reply but as she made none he proceeded</td>
-              <td><audio controls><source src="slm_librispeech/lm-spt_25hz/4992-23283-0008.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/mimi_25hz/4992-23283-0008.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/spt_25hz/4992-23283-0008.wav"></audio></td>
-            </tr>
-
-            <tr>
-              <td class="text-left">but now here is a subject of which you will wonder at first why turner drew it at all</td>
-              <td><audio controls><source src="slm_librispeech/lm-spt_25hz/1188-133604-0038.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/mimi_25hz/1188-133604-0038.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/spt_25hz/1188-133604-0038.wav"></audio></td>
-            </tr>
-
-            <tr>
-              <td class="text-left">without his scrapbooks his chemicals and his homely untidiness he was an uncomfortable man</td>
-              <td><audio controls><source src="slm_librispeech/lm-spt_25hz/1580-141083-0003.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/mimi_25hz/1580-141083-0003.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/spt_25hz/1580-141083-0003.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/eng/speakers/1188-133604-0039.wav"></audio></td>
+              <td class="text-left transcript">There's one and there's another the dudley and the flint.</td>
+              <td><audio controls><source src="tts_samples/eng/lmspt/1188-133604-0031.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/eng/cosy2/1188-133604-0031.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/eng/mimi/1188-133604-0031.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/eng/dualcodec/1188-133604-0031.wav"></audio></td>
             </tr>
           </tbody>
         </table>
@@ -252,215 +260,44 @@
     </div>
   </section>
 
-  <!-- 12.5Hz -->
-  <section class="frequency-block" id="12d5Hz">
-    <h2>12.5Hz</h2>
-    <div class="sub-section recon">
-    <!-- Reconstruction -->
-      <h3>Reconstruction</h3>
-      <div class="table-responsive">
-        <table class="table table-hover table-sm">
-          <thead class="thead-light">
-            <tr>
-              <th>GroundTruth</th>
-              <th>LM-SPT</th>
-              <th>Mimi (R)</th>
-              <th>SpeechTokenizer</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><audio controls><source src="recon_librispeech/ref/61-70968-0045.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-12d5hz/recon/61-70968-0045.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-12d5hz/recon/61-70968-0045.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-12d5hz/recon/61-70968-0045.wav"></audio></td>
-            </tr>
+  <!-- Korean: Reconstruction → Reconstruction (Semantic Only) → Zero-shot TTS -->
+  <section class="frequency-block" id="korean">
+    <h2>Korean</h2>
 
-            <tr>
-              <td><audio controls><source src="recon_librispeech/ref/2094-142345-0053.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-12d5hz/recon/2094-142345-0053.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-12d5hz/recon/2094-142345-0053.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-12d5hz/recon/2094-142345-0053.wav"></audio></td>
-            </tr>
-
-            <tr>
-              <td><audio controls><source src="recon_librispeech/ref/1320-122617-0000.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-12d5hz/recon/1320-122617-0000.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-12d5hz/recon/1320-122617-0000.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-12d5hz/recon/1320-122617-0000.wav"></audio></td>
-            </tr>
-
-            <tr>
-              <td><audio controls><source src="recon_librispeech/ref/7729-102255-0028.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-12d5hz/recon/7729-102255-0028.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-12d5hz/recon/7729-102255-0028.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-12d5hz/recon/7729-102255-0028.wav"></audio></td>
-            </tr>
-
-            <tr>
-              <td><audio controls><source src="recon_librispeech/ref/4507-16021-0015.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-12d5hz/recon/4507-16021-0015.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-12d5hz/recon/4507-16021-0015.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-12d5hz/recon/4507-16021-0015.wav"></audio></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <h3>Reconstruction (Semantic Only)</h3>
-      <div class="table-responsive">
-        <table class="table table-hover table-sm">
-          <thead class="thead-light">
-            <tr>
-              <th>GroundTruth</th>
-              <th>LM-SPT</th>
-              <th>Mimi (R)</th>
-              <th>SpeechTokenizer</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><audio controls><source src="recon_librispeech/ref/61-70968-0045.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-12d5hz/sem_recon/61-70968-0045.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-12d5hz/sem_recon/61-70968-0045.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-12d5hz/sem_recon/61-70968-0045.wav"></audio></td>
-            </tr>
-
-            <tr>
-              <td><audio controls><source src="recon_librispeech/ref/2094-142345-0053.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-12d5hz/sem_recon/2094-142345-0053.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-12d5hz/sem_recon/2094-142345-0053.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-12d5hz/sem_recon/2094-142345-0053.wav"></audio></td>
-            </tr>
-
-            <tr>
-              <td><audio controls><source src="recon_librispeech/ref/1320-122617-0000.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-12d5hz/sem_recon/1320-122617-0000.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-12d5hz/sem_recon/1320-122617-0000.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-12d5hz/sem_recon/1320-122617-0000.wav"></audio></td>
-            </tr>
-
-            <tr>
-              <td><audio controls><source src="recon_librispeech/ref/7729-102255-0028.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-12d5hz/sem_recon/7729-102255-0028.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-12d5hz/sem_recon/7729-102255-0028.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-12d5hz/sem_recon/7729-102255-0028.wav"></audio></td>
-            </tr>
-
-            <tr>
-              <td><audio controls><source src="recon_librispeech/ref/4507-16021-0015.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-12d5hz/sem_recon/4507-16021-0015.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-12d5hz/sem_recon/4507-16021-0015.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-12d5hz/sem_recon/4507-16021-0015.wav"></audio></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- TTS -->
-    <div class="sub-section tts">
-      <h3>Text-to-Speech</h3>
-      <div class="table-responsive">
-        <table class="table table-hover table-sm">
-          <thead class="thead-light">
-            <tr>
-              <th>Text</th>
-              <th>LM-SPT</th>
-              <th>Mimi (R)</th>
-              <th>SpeechTokenizer</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="text-left">they were upon the verge of an open trap in the far corner of the hut and stuteley had tripped over the edge of the reversed flap mouth of this pit</td>
-              <td><audio controls><source src="slm_librispeech/lm-spt_12d5hz/61-70970-0025.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/mimi_12d5hz/61-70970-0025.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/spt_12d5hz/61-70970-0025.wav"></audio></td>
-            </tr>
-
-            <tr>
-              <td class="text-left">were i in the warm room with all the splendor and magnificence</td>
-              <td><audio controls><source src="slm_librispeech/lm-spt_12d5hz/672-122797-0015.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/mimi_12d5hz/672-122797-0015.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/spt_12d5hz/672-122797-0015.wav"></audio></td>
-            </tr>
-
-            <tr>
-              <td class="text-left">he seemed to wait for her reply but as she made none he proceeded</td>
-              <td><audio controls><source src="slm_librispeech/lm-spt_12d5hz/4992-23283-0008.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/mimi_12d5hz/4992-23283-0008.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/spt_12d5hz/4992-23283-0008.wav"></audio></td>
-            </tr>
-
-            <tr>
-              <td class="text-left">but now here is a subject of which you will wonder at first why turner drew it at all</td>
-              <td><audio controls><source src="slm_librispeech/lm-spt_12d5hz/1188-133604-0038.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/mimi_12d5hz/1188-133604-0038.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/spt_12d5hz/1188-133604-0038.wav"></audio></td>
-            </tr>
-
-            <tr>
-              <td class="text-left">without his scrapbooks his chemicals and his homely untidiness he was an uncomfortable man</td>
-              <td><audio controls><source src="slm_librispeech/lm-spt_12d5hz/1580-141083-0003.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/mimi_12d5hz/1580-141083-0003.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/spt_12d5hz/1580-141083-0003.wav"></audio></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6.25Hz -->
-  <section class="frequency-block" id="6d25Hz">
-    <h2>6.25Hz</h2>
-    <!-- Reconstruction -->
     <div class="sub-section recon">
       <h3>Reconstruction</h3>
       <div class="table-responsive">
         <table class="table table-hover table-sm">
           <thead class="thead-light">
             <tr>
+              <th>Transcript</th>
               <th>GroundTruth</th>
               <th>LM-SPT</th>
-              <th>Mimi (R)</th>
-              <th>SpeechTokenizer</th>
+              <th>Mimi</th>
+              <th>DualCodec</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><audio controls><source src="recon_librispeech/ref/61-70968-0045.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-6d25hz/recon/61-70968-0045.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-6d25hz/recon/61-70968-0045.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-6d25hz/recon/61-70968-0045.wav"></audio></td>
+              <td class="transcript">아 근데 진짜 감튀 먹고 있는데 데려온 거 심했다</td>
+              <td><audio controls><source src="recon_samples/gt_kor_5.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_kor_5.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/mimi_kor_5.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/dualcodec_kor_5.wav"></audio></td>
             </tr>
-
             <tr>
-              <td><audio controls><source src="recon_librispeech/ref/2094-142345-0053.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-6d25hz/recon/2094-142345-0053.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-6d25hz/recon/2094-142345-0053.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-6d25hz/recon/2094-142345-0053.wav"></audio></td>
+              <td class="transcript">아닐껄 그뭐지 몰라 뭔가 근데 그 남자애가 우리 욕 했을 것 같애</td>
+              <td><audio controls><source src="recon_samples/gt_kor_10.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_kor_10.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/mimi_kor_10.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/dualcodec_kor_10.wav"></audio></td>
             </tr>
-
             <tr>
-              <td><audio controls><source src="recon_librispeech/ref/1320-122617-0000.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-6d25hz/recon/1320-122617-0000.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-6d25hz/recon/1320-122617-0000.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-6d25hz/recon/1320-122617-0000.wav"></audio></td>
-            </tr>
-
-            <tr>
-              <td><audio controls><source src="recon_librispeech/ref/7729-102255-0028.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-6d25hz/recon/7729-102255-0028.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-6d25hz/recon/7729-102255-0028.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-6d25hz/recon/7729-102255-0028.wav"></audio></td>
-            </tr>
-
-            <tr>
-              <td><audio controls><source src="recon_librispeech/ref/4507-16021-0015.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-6d25hz/recon/4507-16021-0015.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-6d25hz/recon/4507-16021-0015.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-6d25hz/recon/4507-16021-0015.wav"></audio></td>
+              <td class="transcript">더 재밌게 즐길 수 있었을 텐데</td>
+              <td><audio controls><source src="recon_samples/gt_kor_20.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_kor_20.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/mimi_kor_20.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/dualcodec_kor_20.wav"></audio></td>
             </tr>
           </tbody>
         </table>
@@ -471,102 +308,84 @@
         <table class="table table-hover table-sm">
           <thead class="thead-light">
             <tr>
+              <th>Transcript</th>
               <th>GroundTruth</th>
               <th>LM-SPT</th>
-              <th>Mimi (R)</th>
-              <th>SpeechTokenizer</th>
+              <th>Mimi</th>
+              <th>DualCodec</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><audio controls><source src="recon_librispeech/ref/61-70968-0045.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-6d25hz/sem_recon/61-70968-0045.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-6d25hz/sem_recon/61-70968-0045.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-6d25hz/sem_recon/61-70968-0045.wav"></audio></td>
+              <td class="transcript">아 근데 진짜 감튀 먹고 있는데 데려온 거 심했다</td>
+              <td><audio controls><source src="recon_samples/gt_kor_5.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_semantic_kor_5.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/mimi_semantic_kor_5.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/dualcodec_semantic_kor_5.wav"></audio></td>
             </tr>
-
             <tr>
-              <td><audio controls><source src="recon_librispeech/ref/2094-142345-0053.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-6d25hz/sem_recon/2094-142345-0053.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-6d25hz/sem_recon/2094-142345-0053.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-6d25hz/sem_recon/2094-142345-0053.wav"></audio></td>
+              <td class="transcript">아닐껄 그뭐지 몰라 뭔가 근데 그 남자애가 우리 욕 했을 것 같애</td>
+              <td><audio controls><source src="recon_samples/gt_kor_10.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_semantic_kor_10.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/mimi_semantic_kor_10.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/dualcodec_semantic_kor_10.wav"></audio></td>
             </tr>
-
             <tr>
-              <td><audio controls><source src="recon_librispeech/ref/1320-122617-0000.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-6d25hz/sem_recon/1320-122617-0000.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-6d25hz/sem_recon/1320-122617-0000.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-6d25hz/sem_recon/1320-122617-0000.wav"></audio></td>
-            </tr>
-
-            <tr>
-              <td><audio controls><source src="recon_librispeech/ref/7729-102255-0028.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-6d25hz/sem_recon/7729-102255-0028.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-6d25hz/sem_recon/7729-102255-0028.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-6d25hz/sem_recon/7729-102255-0028.wav"></audio></td>
-            </tr>
-
-            <tr>
-              <td><audio controls><source src="recon_librispeech/ref/4507-16021-0015.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/lm-spt-6d25hz/sem_recon/4507-16021-0015.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/mimi-6d25hz/sem_recon/4507-16021-0015.wav"></audio></td>
-              <td><audio controls><source src="recon_librispeech/spt-6d25hz/sem_recon/4507-16021-0015.wav"></audio></td>
+              <td class="transcript">더 재밌게 즐길 수 있었을 텐데</td>
+              <td><audio controls><source src="recon_samples/gt_kor_20.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/lmspt_semantic_kor_20.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/mimi_semantic_kor_20.wav"></audio></td>
+              <td><audio controls><source src="recon_samples/dualcodec_semantic_kor_20.wav"></audio></td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
 
-    <!-- TTS -->
     <div class="sub-section tts">
-      <h3>Text-to-Speech</h3>
+      <h3>Zero-shot Text-to-Speech</h3>
       <div class="table-responsive">
         <table class="table table-hover table-sm">
           <thead class="thead-light">
             <tr>
-              <th>Text</th>
+              <th>Reference Speaker</th>
+              <th>Transcript</th>
               <th>LM-SPT</th>
-              <th>Mimi (R)</th>
-              <th>SpeechTokenizer</th>
+              <th>Cosy2</th>
+              <th>Mimi</th>
+              <th>DualCodec</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="text-left">they were upon the verge of an open trap in the far corner of the hut and stuteley had tripped over the edge of the reversed flap mouth of this pit</td>
-              <td><audio controls><source src="slm_librispeech/lm-spt_6d25hz/61-70970-0025.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/mimi_6d25hz/61-70970-0025.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/spt_6d25hz/61-70970-0025.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/kor/speakers/KsponSpeech_E00356.wav"></audio></td>
+              <td class="text-left transcript">근데 내가 한참동안 있었거든 근데 이제</td>
+              <td><audio controls><source src="tts_samples/kor/lmspt/KsponSpeech_E00352.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/kor/cosy2/KsponSpeech_E00352.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/kor/mimi/KsponSpeech_E00352.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/kor/dualcodec/KsponSpeech_E00352.wav"></audio></td>
             </tr>
-
             <tr>
-              <td class="text-left">were i in the warm room with all the splendor and magnificence</td>
-              <td><audio controls><source src="slm_librispeech/lm-spt_6d25hz/672-122797-0015.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/mimi_6d25hz/672-122797-0015.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/spt_6d25hz/672-122797-0015.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/kor/speakers/KsponSpeech_E01076.wav"></audio></td>
+              <td class="text-left transcript">또 이제 내가 오월드를 하고 나서 뚜레주르라는 또 알바를 했었어 내가 근데</td>
+              <td><audio controls><source src="tts_samples/kor/lmspt/KsponSpeech_E01075.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/kor/cosy2/KsponSpeech_E01075.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/kor/mimi/KsponSpeech_E01075.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/kor/dualcodec/KsponSpeech_E01075.wav"></audio></td>
             </tr>
-
             <tr>
-              <td class="text-left">he seemed to wait for her reply but as she made none he proceeded</td>
-              <td><audio controls><source src="slm_librispeech/lm-spt_6d25hz/4992-23283-0008.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/mimi_6d25hz/4992-23283-0008.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/spt_6d25hz/4992-23283-0008.wav"></audio></td>
-            </tr>
-
-            <tr>
-              <td class="text-left">but now here is a subject of which you will wonder at first why turner drew it at all</td>
-              <td><audio controls><source src="slm_librispeech/lm-spt_6d25hz/1188-133604-0038.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/mimi_6d25hz/1188-133604-0038.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/spt_6d25hz/1188-133604-0038.wav"></audio></td>
-            </tr>
-
-            <tr>
-              <td class="text-left">without his scrapbooks his chemicals and his homely untidiness he was an uncomfortable man</td>
-              <td><audio controls><source src="slm_librispeech/lm-spt_6d25hz/1580-141083-0003.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/mimi_6d25hz/1580-141083-0003.wav"></audio></td>
-              <td><audio controls><source src="slm_librispeech/spt_6d25hz/1580-141083-0003.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/kor/speakers/KsponSpeech_E02441.wav"></audio></td>
+              <td class="text-left transcript">키가 되게 작아도 못 탄다고 했잖아 근데 그 애가 키가 되게 작은 거야 근데 엄마랑 같이 왔어 근데</td>
+              <td><audio controls><source src="tts_samples/kor/lmspt/KsponSpeech_E02439.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/kor/cosy2/KsponSpeech_E02439.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/kor/mimi/KsponSpeech_E02439.wav"></audio></td>
+              <td><audio controls><source src="tts_samples/kor/dualcodec/KsponSpeech_E02439.wav"></audio></td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
   </section>
+</div>
+</body>
+</html>
